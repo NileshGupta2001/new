@@ -1,6 +1,15 @@
 '''
 !C:/Users/dell/AppData/Local/Programs/Python/Python310/python.exe
 '''
+from flask import Flask, render_template
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+  return render_template('index.html')
+
+@app.route('/connectusingpython2.py')
+def my_link():
 print("Content-Type:text/html")
 print()
 
@@ -14,7 +23,7 @@ form=cgi.FieldStorage()
 
 userid=form.getvalue("userid")
 username=form.getvalue("username")
-address=form.getvalue("address")
+address_=form.getvalue("address")
 gender=form.getvalue("gender")
 hindi=form.getvalue("hindi")
 english=form.getvalue("english")
@@ -33,10 +42,13 @@ con=pyodbc.connect('DRIVER={ODBC Driver 13 for SQL Server};SERVER='+Server+';DAT
 #con=mysql.connector.connect(user='root',password='',host='localhost',database='webpython',port='3307')
 cur=con.cursor()
 
-cur.execute("insert into student values(%s,%s,%s,%s,%s,%s,%s,%s)",(userid,username,address,gender,hindi,english,urdu,select1))
+cur.execute("insert into student values(%s,%s,%s,%s,%s,%s,%s,%s)",(userid,username,address_,gender,hindi,english,urdu,select1))
 con.commit()
 
 cur.close()
 con.close()
 print("<h3>YOUR RECORD HAS BEEN SUCCESSFULLY INSERTED!!</h3>")
 print("<a href='https://nice-bush-0404bfe10.1.azurestaticapps.net'>GO BACK?</a>")
+
+if __name__ == '__main__':
+  app.run(debug=True)
