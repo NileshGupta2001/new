@@ -23,13 +23,13 @@ select1=form.getvalue("select")
 
 #import mysql.connector
 import pyodbc
-server = 'registerdbnew.database.windows.net'
+Server = 'registerdbnew.database.windows.net,1433'
 database = 'try2'
 username = 'nilesh'
 password = 'uAeSy9@1'   
 driver= '{ODBC Driver 17 for SQL Server}'
 
-con=pyodbc.connect('DRIVER='+driver+';SERVER=tcp:'+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+ password)
+con=pyodbc.connect('DRIVER={ODBC Driver 13 for SQL Server};SERVER='+Server+';DATABASE='+database+';UID='+username+';PWD='+ password)
 #con=mysql.connector.connect(user='root',password='',host='localhost',database='webpython',port='3307')
 cur=con.cursor()
 
