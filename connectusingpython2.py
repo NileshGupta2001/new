@@ -30,16 +30,17 @@ english=form.getvalue("english")
 urdu=form.getvalue("urdu")
 select1=form.getvalue("select")
 
-#import mysql.connector
-import pyodbc
+import mysql.connector
+#import pyodbc
 Server = 'registerdbnew.mysql.database.azure.com'
 database = 'register'
 username = 'nilesh'
 password = 'NewPass@21'   
 driver= '{ODBC Driver 17 for SQL Server}'
 
-con=pyodbc.connect('DRIVER={ODBC Driver 13 for SQL Server};SERVER='+Server+';DATABASE='+database+';UID='+username+';PWD='+ password)
+#con=pyodbc.connect('DRIVER={ODBC Driver 13 for SQL Server};SERVER='+Server+';DATABASE='+database+';UID='+username+';PWD='+ password)
 #con=mysql.connector.connect(user='root',password='',host='localhost',database='webpython',port='3307')
+con = mysql.connector.connect(user="nilesh", password="NewPass@21", host="registerdbnew.mysql.database.azure.com", port=3306, database="register", ssl_ca="DigiCertGlobalRootCA.crt", ssl_disabled=False)
 cur=con.cursor()
 
 cur.execute("insert into student values(%s,%s,%s,%s,%s,%s,%s,%s)",(userid,username,address_,gender,hindi,english,urdu,select1))
