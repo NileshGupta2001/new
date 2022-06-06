@@ -23,7 +23,7 @@ form=cgi.FieldStorage()
 
 userid=form.getvalue("userid")
 username=form.getvalue("username")
-address_=form.getvalue("address")
+address=form.getvalue("address")
 gender=form.getvalue("gender")
 hindi=form.getvalue("hindi")
 english=form.getvalue("english")
@@ -32,10 +32,10 @@ select1=form.getvalue("select")
 
 #import mysql.connector
 import pyodbc
-Server = 'registerdbnew.database.windows.net,1433'
-database = 'try2'
+Server = 'registerdbnew.mysql.database.azure.com'
+database = 'register'
 username = 'nilesh'
-password = 'uAeSy9@1'   
+password = 'NewPass@21'   
 driver= '{ODBC Driver 17 for SQL Server}'
 
 con=pyodbc.connect('DRIVER={ODBC Driver 13 for SQL Server};SERVER='+Server+';DATABASE='+database+';UID='+username+';PWD='+ password)
