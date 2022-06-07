@@ -58,7 +58,8 @@ def result():
             print(err)
     else:
         cur=con.cursor()
-
+        print("STARTING TO SAVE")
+        '''
         if request.method=='POST':
             singup=request.form
             userid=singup['userid']
@@ -71,9 +72,10 @@ def result():
             select1=singup['select']
             cur.execute("insert into student values(%s,%s,%s,%s,%s,%s,%s,%s)",(userid,username,address,gender,hindi,english,urdu,select1))
             con.commit()
-
+        
             cur.close()
             con.close()
+            '''
             print("<h3>YOUR RECORD HAS BEEN SUCCESSFULLY INSERTED!!</h3>")
             print("<a href='https://nice-bush-0404bfe10.1.azurestaticapps.net'>GO BACK?</a>")
     return 'REGISTER SUCCESSFUL'
